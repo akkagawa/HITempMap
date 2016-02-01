@@ -1,2 +1,2 @@
 # HITempMap
-# This work relates to temperature mapping for the Hawaiian Islands
+# this is an effort in mapping surface air temperatures in Hawaii
