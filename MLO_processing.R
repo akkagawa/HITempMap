@@ -6,9 +6,9 @@
 setwd("C:/Users/Aurora/OneDrive/Documents/Projects/TempMapping/MLO")
 
 ## Access GMD ftp server and download hourly data
-cur<-unlist(strsplit(date()))
+cur<-unlist(strsplit(date(), split=" "))
 url_MLO<-"ftp://ftp.cmdl.noaa.gov/met/mlo/"                              
-files<-paste("met_mlo_insitu_1_obop_hour_", c(1977:2016),".txt", sep="")
+files<-paste("met_mlo_insitu_1_obop_hour_", c(1977:cur[5]),".txt", sep="")
 
 for (i in 1:length(files)){
   download.file(paste(url_MLO,files[i], sep=""), destfile=paste(files[i]))  
