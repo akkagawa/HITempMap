@@ -1,6 +1,7 @@
 ## MLO_processing.R
+## Project: HI Temp
 ## Author: Aurora Kagawa-Viviani
-## Date: March 25 2016; revised April 8 2016
+## Date: March 25 2016; revised April 8 2016; rerun 6/16/2017; rerun 5/3/2018
 ## Notes: Script for downloading and aggregating Mauna Loa Observatory data
 
 setwd("C:/Users/Aurora/OneDrive/Documents/Projects/TempMapping/MLO")
@@ -83,12 +84,12 @@ download.file(readme, destfile="README.txt")
 ##  Convert HOURLY to DAILY and write to file ##
 ################################################
 out<-list()
-files.out<-paste("mlo_daily_", c(1977:2016),".csv", sep="")
+files.out<-paste("mlo_daily_", c(1977:2018),".csv", sep="")
 
 numNA<-function(X) {length(which(is.na(X)))}
 
 for (i in 1:length(files)){
-  dat<-read.table(list.files()[i], header=F)
+  dat<-read.table(list.files(pattern="met_mlo_insitu_1_obop_hour")[i], header=F)
   temp<-dat[,c("V10","V11","V12")]
   i.na<-temp==-999.9
   is.na(temp)<-i.na
@@ -183,7 +184,7 @@ Tavg.obs2m  <- tapply(daily$Tavg2, INDEX=ym, FUN=length)-
                 tapply(daily$Tavg2, INDEX=ym, FUN=numNA)    
 
 monthyear<-data.frame(Station ="MLO",
-                      MonthYear = names(Tmin2d),
+                      MonthYear = names(Tmin2m),
                       Elevation = 3397.00,
                       Latitude	= 19.5362,
                       Longitude	= -155.5763,
