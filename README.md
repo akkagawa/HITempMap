@@ -40,45 +40,45 @@ These scripts are associated with the Hawaii temperature mapping and modeling ef
 - Last run: 06/29/2018
 - Notes: this script performs model fitting and evaluation:
 1. mean annual station values
-  a. simple linear regression on elevation for Tmax, Tmin, Tavg
-  b. multiple linear regression using other predictor variables for Tmax, Tmin, Tavg, and DTR, using variables selected through AIC
+  - simple linear regression on elevation for Tmax, Tmin, Tavg
+  - multiple linear regression using other predictor variables for Tmax, Tmin, Tavg, and DTR, using variables selected through AIC
 2. mean monthly station values
-  a. regression on elevation
-  b. multiple linear regression using other predictor variables for Tmax, Tmin, Tavg, and DTR, using variables selected through AIC 
+  - regression on elevation
+  - multiple linear regression using other predictor variables for Tmax, Tmin, Tavg, and DTR, using variables selected through AIC 
 3. make annual map of Tmax, Tmin, Tavg, DTR
 4. use jacknifing to calculate MAE, RMSE for mean annual predictions
+5. produces FIGURE 2: Validation Stats of best models
 
 ## AnalysesMonthlyValidation_20180515.R
 - Notes: fit monthly models
 - re-predict and make maps  (incorporates elements of AnalysesMapping.R files)  
 
 # Time Series Covariates
-## AnalysesTemporal_p1_20180517.R
+## AnalysesTemporal_p1_20180630.R
 - Notes: Script for running analyses on time series
 - Feb 2018 notes: removed Midway (-999 elevation)
 - 7/20/2017 notes: created new script for interannual/interdecadal variability, revised for cloud/wind 7/20/2017
 - 6/23/2017 notes: added TWI criteria, simplified Fig 1 (stations)
 - Apr 18-20 2016 notes: major overhaul
 - DESCRIPTION: This script addresses only station coverage, ***TRENDS
-- Generates plot of stations (Figure 1)
+- produces FIGURE 1: plot of stations
+- produces FIGURE 3: plots of annual trends, monthly for 1905-2017
 
-####### not necessarily useful
 ## TrendMethodComparison.R
-## Author: Aurora Kagawa-Viviani
-## Date: Feb 5 2018
-## Notes: Script for calculating trends with annual time series
+- Notes: Ancillary script for calculating trends with annual time series using different methods
 
-# for Time series comparison with climate variables
+# Comparing temperature time series comparison with climate variables
 ## TS_ParseNCDCforCloudWindMay2018.R
 - Date: 6/14/2017- 6/15
 - Purpose: to look for cloud cover data, wind speed
-- modified from redownload.R
-- Script to download data from NCDC server
+- script modified from redownload.R to examine airport cloud cover and wind speed info from NCDC server
 
 ## Indices_processing1Sep2017.R
 - Notes: Script to organize various climate indices
 
-## AnalysesTemporal_p2_20180521
+## AnalysesTemporal_p2_20180521.R
 - NATURAL VARIABILITY
 - revised for cloud/wind 7/20/2017, finalizing ts analyses 9/2017
 - Notes: Script for running analyses on time series
+- produces FIGURE 4: Fig4_InterannualVar_SST_RFI.pdf
+- produces FIGURE 5: 
