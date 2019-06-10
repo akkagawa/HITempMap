@@ -1,74 +1,60 @@
 # HITempMap
 These scripts are associated with the Hawaii temperature mapping and modeling effort by A. Kagawa-Viviani:
 
-## DatasetGeneration_May2018.R; re-run 5/3/2018
-Notes: Full Script for Temperature Modeling and Mapping, from NCDC download to organized files of daily data for aggregation to monthly, yearly.
+# DatasetGeneration_May2018.R
+-Last run: 5/3/2018
+-Notes: Full Script for Temperature Modeling and Mapping, from NCDC download to organized files of daily data for aggregation to monthly, yearly.
 
-## HN_processing.R
-Notes: Script for downloading and aggregating HaleNet data
+# HN_processing.R
+-Last run: 5/3/2018
+-Notes: Script for aggregating hourly HaleNet data and calculating daily, monthly, and annual statistics
 
-## MLO_processing.R
-Notes: Script for downloading and aggregating Mauna Loa Observatory data
+# MLO_processing2019.R
+-Last run: 5/21/2019
+-Notes: Script for downloading and aggregating hourly Mauna Loa Observatory data and calculating daily, monthly, and annual statistics
 
-## StationKey_processing3.R
-Notes: Script for organizing station metadata and generating a final station key (req's DatasetGeneration...)
+# StationKey_processing3.R
+-Last run: 5/6/2018
+-Notes: Script for organizing station metadata and generating a final station key (req's DatasetGeneration...)
 
-## Aggregation_and_QAQC.R
-Author: Aurora Kagawa-Viviani
-Date: April 17-18 2016; re-run 6/17/2017
-Match station locations with gridded correlates
-Subset appropriately for analysis: by month-years or years
-Drawn from NCDCplusHaleNet3.R, SubsettingMonthYears1.R
+# Aggregation_and_QAQC.R
+-Last run: 5/6/2018
+1. Match all station locations with gridded correlates
+2. Subset appropriately for analysis: by month-years or years
 
-### not used? Spatial_StationViz.R
-Notes: Script for visualizing station locations and spatial patterns
+## Spatial Covariates
+# ExtractSpatialCovariates_May2018.R (from ExtractRFValues.R)
+-Last run: 5/6/2018
+-Notes: Extract covariates based on layers of spatial data
 
+# AnalysesSpatial_20180525.R  
+-Last run: 5/25/2018
+-Notes: Analysis 3: Spatial Patterns
+-Temperature variables vs elevation, TPI*, CI, albedo, LAI, MAP, Cloud freq, wind speed
+-*TPI* maybe should be flow accumulation or Beven Topmodel TPI instead of this other TPI?
+-Take station month year data and station annual data: complete years (so as to not bias dataset)
+-Analyze station mean annual AND mean month for (xx-xx base period)
+-Make scatterplot matrix of station mean annual Tmax, Tmin, Tavg, and DTR versus all covariate
 
----------------- Spatial Covariates
-## ExtractSpatialCovariates_May2018.R (from ExtractRFValues.R)
- Project: HI Temp
- Author: A. Kagawa-Viviani
- Date: 25 April 2016, revised 6/16/2017
- Notes: Extract covariates based on layers of spatial data
- script based on ExtractMeanTempValues.r (Ryan Longman)
-
-
-## AnalysesSpatial_20180511b.R   * maybe should be flow accumulation or Beven Topmodel TPI instead of this other TPI?
-Analysis 3: Spatial Patterns
- Temperature variables vs elevation, TPI, CI, albedo, LAI, MAP, Cloud freq, wind speed
- Take station month year data and station annual data
- Filter 30 year base period??
- Take only complete years (so as to not bias dataset)
- Analyze station mean annual AND mean month for (xx-xx base period)
- Make scatterplot matrix of station mean annual Tmax, Tmin, Tavg, and DTR versus all covariates
-
-
-## AnalysesValidation_20180516.R
-## 6/17/2017
-## A. Kagawa-Viviani
-## Notes: this script performs model fitting and evaluation:
-##    1) mean annual station values
-##        a) simple linear regression on elevation for Tmax, Tmin, Tavg
-##        b) multiple linear regression using other predictor variables
-##            for Tmax, Tmin, Tavg, and DTR, using variables selected through AIC
-##    2) mean monthly station values
-##        a) regression on elevation
-##        b) multiple linear regression using other predictor variables
-##            for Tmax, Tmin, Tavg, and DTR, using variables selected through AIC
-## make annual map of Tmax, Tmin, Tavg, DTR
-## use jacknifing to calculate MAE, RMSE for mean annual predictions
+# AnalysesValidation_20180629.R
+-Last run: 06/29/2018
+-Notes: this script performs model fitting and evaluation:
+1. mean annual station values
+a. simple linear regression on elevation for Tmax, Tmin, Tavg
+b. multiple linear regression using other predictor variables for Tmax, Tmin, Tavg, and DTR, using variables selected through AIC
+2. mean monthly station values
+a. regression on elevation
+b. multiple linear regression using other predictor variables for Tmax, Tmin, Tavg, and DTR, using variables selected through AIC
+ make annual map of Tmax, Tmin, Tavg, DTR
+3. use jacknifing to calculate MAE, RMSE for mean annual predictions
 
 AnalysesMonthlyValidation_20180515.R
-## fit monthly models
-## re-predict and make maps  (incorporates elements of AnalysesMapping.R files)  
-## 
+-Notes: fit monthly models
+-re-predict and make maps  (incorporates elements of AnalysesMapping.R files)  
 
------------------ Time Series Covariates
-
-## AnalysesTemporal_p1_20180517.R (formerly AnalysesTemporal_p1_20180220.R, AnalysesJul2017Temporal.RAnalysesJun2017Temporal.R, AnalysesApr2016v4, Analyses.R)
-## Author: Aurora Kagawa-Viviani
-## Date: Feb 23, 2018
-## Notes: Script for running analyses on time series
+# Time Series Covariates
+# AnalysesTemporal_p1_20180517.R (formerly AnalysesTemporal_p1_20180220.R, AnalysesJul2017Temporal.RAnalysesJun2017Temporal.R, AnalysesApr2016v4, Analyses.R)
+-Notes: Script for running analyses on time series
 ## Feb 2018 notes: removed Midway (-999 elevation)
 ## 7/20/2017 notes: created new script for interannual/interdecadal variability, revised for cloud/wind 7/20/2017
 ## 6/23/2017 notes: added TWI criteria, simplified Fig 1 (stations)
