@@ -14,34 +14,33 @@ Notes: Script for downloading and aggregating Mauna Loa Observatory data
 Notes: Script for organizing station metadata and generating a final station key (req's DatasetGeneration...)
 
 ## Aggregation_and_QAQC.R
-## Author: Aurora Kagawa-Viviani
-## Date: April 17-18 2016; re-run 6/17/2017
-## Match station locations with gridded correlates
-## Subset appropriately for analysis: by month-years or years
-##  Drawn from NCDCplusHaleNet3.R, SubsettingMonthYears1.R
+Author: Aurora Kagawa-Viviani
+Date: April 17-18 2016; re-run 6/17/2017
+Match station locations with gridded correlates
+Subset appropriately for analysis: by month-years or years
+Drawn from NCDCplusHaleNet3.R, SubsettingMonthYears1.R
 
-### not used?
-## Spatial_StationViz.R
-## Notes: Script for visualizing station locations and spatial patterns
+### not used? Spatial_StationViz.R
+Notes: Script for visualizing station locations and spatial patterns
 
 
 ---------------- Spatial Covariates
 ## ExtractSpatialCovariates_May2018.R (from ExtractRFValues.R)
-## Project: HI Temp
-## Author: A. Kagawa-Viviani
-## Date: 25 April 2016, revised 6/16/2017
-## Notes: Extract covariates based on layers of spatial data
-## script based on ExtractMeanTempValues.r (Ryan Longman)
+ Project: HI Temp
+ Author: A. Kagawa-Viviani
+ Date: 25 April 2016, revised 6/16/2017
+ Notes: Extract covariates based on layers of spatial data
+ script based on ExtractMeanTempValues.r (Ryan Longman)
 
 
 ## AnalysesSpatial_20180511b.R   * maybe should be flow accumulation or Beven Topmodel TPI instead of this other TPI?
-## Analysis 3: Spatial Patterns
-## Temperature variables vs elevation, TPI, CI, albedo, LAI, MAP, Cloud freq, wind speed
-# Take station month year data and station annual data
-# Filter 30 year base period??
-# Take only complete years (so as to not bias dataset)
-# Analyze station mean annual AND mean month for (xx-xx base period)
-# Make scatterplot matrix of station mean annual Tmax, Tmin, Tavg, and DTR versus all covariates
+Analysis 3: Spatial Patterns
+ Temperature variables vs elevation, TPI, CI, albedo, LAI, MAP, Cloud freq, wind speed
+ Take station month year data and station annual data
+ Filter 30 year base period??
+ Take only complete years (so as to not bias dataset)
+ Analyze station mean annual AND mean month for (xx-xx base period)
+ Make scatterplot matrix of station mean annual Tmax, Tmin, Tavg, and DTR versus all covariates
 
 
 ## AnalysesValidation_20180516.R
