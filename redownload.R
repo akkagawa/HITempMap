@@ -1,7 +1,7 @@
 # redownload.R
 # Script to download data from NCDC server
-# last download: July 22, 2015
-# run: July 23, 2015
+# last download: May 03, 2018
+# run: May 03, 2018
 
 ####################################
 setwd("<WORKING DIRECTORY HERE>")  # Insert working directory
@@ -30,7 +30,7 @@ for(i in 1:length(files)){
 }
 
 ##########################################
-setwd("C:/Users/Kealohilani/OneDrive/Documents/Projects/TempMapping/NCDC_DailyTemp")
+setwd("<WORKING DIRECTORY HERE>")
 stn<-read.csv("ghcnd-stationsHI.csv") 
 files<-paste(stn$ID, ".dly", sep="")
 ##### Read files and put into list "dat"
