@@ -82,3 +82,19 @@ These scripts are associated with the Hawaii temperature mapping and modeling ef
 - Notes: Script for running analyses on time series
 - produces FIGURE 4: Fig4_InterannualVar_SST_RFI.pdf
 - produces FIGURE 5: 
+
+# Contextualizing lapse rates: comparing with soundings and ceilometer
+## ASOS_cloud2019.R
+- Pull ASOS records, METAR format
+- Parse for ceilometer info and export
+
+## Sonde_UWyo.R
+- Pull Uwyo records
+- Parse and split into profile and calculated indices
+
+## Sonde_UWyo_profileTRENDS.R  (Temp, RH, Mixing ratio)
+- Read in UWyo sounding profile information
+- Combine and export monthly time series by layers, 400m slices
+
+## LapseRateFigure.R
+- Read in surface, ceilometer, and sounding data from 1978-2017
