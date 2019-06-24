@@ -158,7 +158,7 @@ combo.DTR    ## Top vbles: cpi, cloud frequency, wind speed, and elevation
 mods.DTR<-get.models(combo.DTR, subset=TRUE)
 
 ######################## Compare all models ################################
-dir.create("Analyses/Spatial_2006_2017_fin2019") # move into Analyses/Spatial directory
+#dir.create("Analyses/Spatial_2006_2017_fin2019") # move into Analyses/Spatial directory
 
 ## multiple regression (includes univariate case)
 write.csv(data.frame(combo.Tmax), file="Analyses/Spatial_2006_2017_fin2019/combo.Tmax.z.csv")  # multiple regression global set with AICc
@@ -266,7 +266,7 @@ tavgseg.xyty<-as.matrix(xyty[,c("Tavg", "CorrElev_m","U1.CorrElev_m",
                                 "staterf_mmann", "cl_frq_ann", "wind_sp_ms")])
 
 # Best DTR model cl_frq_ann cpi_w84   t10_200  U1.CrE_m wnd_sp_ms
-dtr.xyty<-as.matrix(xyty[,c("DTR", "cl_frq_ann","cpi_wgs84", "U1.CorrElev_m",
+dtr.xyty<-as.matrix(xyty[,c("DTR", "CorrElev_m", "cl_frq_ann","cpi_wgs84", "U1.CorrElev_m",
                             "tpi100_200c", "wind_sp_ms")])
 
 
@@ -278,7 +278,7 @@ train_control <- trainControl(method="cv", number=5)
 tmax.model <- train(Tmax~., data=tmax.xyty, trControl=train_control, method="lm")
 tminseg.model <- train(Tmin~., data=tminseg.xyty, trControl=train_control, method="lm")
 tavgseg.model <- train(Tavg~., data=tavgseg.xyty, trControl=train_control, method="lm")
-dtr.model <- train(DTR~., data=dtr.xyty, trControl=train_control, method="lm")
+dtr.model <- train(DTR~., data=dtr.xyty[,-2], trControl=train_control, method="lm")
 
 # Summarize the results
 print(tmax.model)
@@ -359,7 +359,7 @@ Tavgmaxmin.legval<-as.expression(bquote("MAE="*.(round(Tavgmaxmin.MAE, 2))*
 leginset<-c(Tavg.leg, Tavg.legval, Tavgmaxmin.leg1, Tavgmaxmin.legval)
 legend("topleft", legend=leginset,
        pch=c(21, NA, 8, NA), pt.cex=c(0.8,0, 0.6,0),bty="n",
-       cex=0.75, y.intersp=0.85)
+       cex=0.8, y.intersp=0.85)
 
 ## DTR inset2: modeled DTR and modeled Tmax-Tmin
 Tmaxmin<-tmax.pred-tmin.pred
@@ -386,7 +386,7 @@ leginset<-c(DTR.leg1, DTR.legval, Tmaxmin.leg1, Tmaxmin.legval)
 legend("topleft",
        legend=leginset,bty="n",
        pch=c(21, NA, 8, NA), pt.cex=c(0.8,0, 0.6,0),
-       cex=0.75, y.intersp=0.85)
+       cex=0.8, y.intersp=0.85)
 
 dev.off()
 
@@ -400,6 +400,15 @@ dev.off()
 
 ## Tavg improvement over linear regression: 31% reduction of RMSE
 (tavg.lm$results[1,2]-tavgseg.model$results[1,2])/tavg.lm$results[1,2]*100  #(orig-better)/orig  
+
+## DTR improvement over linear regression: 28% reduction of RMSE
+(dtr.lm$results[1,2]-dtr.model$results[1,2])/dtr.lm$results[1,2]*100  #(orig-better)/orig  
+
+## Calculated Tavg improvement over model prediction: 6% reduction of RMSE
+(tavgseg.model$results[1,2]-Tavgmaxmin.RMSE)/tavgseg.model$results[1,2]*100  #(orig-better)/orig  
+
+## Calculated DTR improvement over model prediction: 4% reduction of RMSE
+(dtr.model$results[1,2]-Tmaxmin.RMSE)/dtr.model$results[1,2]*100  #(orig-better)/orig  
 
 
 #######################################
@@ -462,10 +471,12 @@ Tmax.pred<-predict(covars, mods.Tmax[[6]], progress='text')
 Tmin.pred<-predict(covars, mods.Tmin[[1]], progress='text')
 Tavg.pred<-predict(covars, mods.Tavg[[4]], progress='text')
 DTR.pred<-predict(covars, mods.DTR[[1]], progress='text')  ### not very informative...
+Tavg.calc<-(Tmax.pred+Tmin.pred)/2
+DTR.calc<-Tmax.pred-Tmin.pred
 
-Tempstack<-stack(Tmax.pred, Tmin.pred, Tavg.pred, DTR.pred)
+Tempstack<-stack(Tmax.pred, Tmin.pred, Tavg.calc, DTR.calc)
 names(Tempstack)<-c("Tmax", "Tmin", "Tavg", "DTR")
-writeRaster(Tempstack, filename=paste0("Analyses/Maps/MA", names(Tempstack), "_20190612.tif"),
+writeRaster(Tempstack, filename=paste0("Analyses/Spatial_2006_2017_fin2019/Maps/MA", names(Tempstack), "_20190612.tif"),
             format="GTiff", bylayer=T, overwrite=T)
 
 ###################################################################################
@@ -618,22 +629,22 @@ mlr.summary$DTR<-lapply(mlr.mod$DTR, FUN= summary)
 # For each month,
 Tmax.pred<-list()
 Tmin.pred<-list()
-Tavg.pred<-list()
-DTR.pred<-list()
+Tavg.calc<-list()
+DTR.calc<-list()
 
 # predict raster
 for (i in 1:12){   
   Tmax.pred[[i]]<-predict(covars, mlr.mod$Tmax[[i]], progress='text')
   Tmin.pred[[i]]<-predict(covars, mlr.mod$Tmin[[i]], progress='text')
-  Tavg.pred[[i]]<-predict(covars, mlr.mod$Tavg[[i]], progress='text')
-  DTR.pred[[i]]<-predict(covars, mlr.mod$DTR[[i]], progress='text')
+  Tavg.calc[[i]]<-(Tmin.pred[[i]]+Tmax.pred[[i]])/2
+  DTR.calc[[i]]<-Tmax.pred[[i]]-Tmin.pred[[i]]
 }
 
 # stack raster
 Tmax.pred.stack<-stack(Tmax.pred)
 Tmin.pred.stack<-stack(Tmin.pred)
-Tavg.pred.stack<-stack(Tavg.pred)
-DTR.pred.stack<-stack(DTR.pred)
+Tavg.calc.stack<-stack(Tavg.calc)
+DTR.calc.stack<-stack(DTR.calc)
 
 # set color scale for stacks
 fixstackcolors<-function(tmax, tmin,n){   
@@ -648,15 +659,15 @@ fixbreaks<-fixstackcolors(Tmax.pred.stack,    # fix color scale for monthly rast
 par(mfrow=c(4,3))
 plot(Tmax.pred.stack, breaks=fixbreaks, col=my.colors(15))
 plot(Tmin.pred.stack, breaks=fixbreaks, col=my.colors(15))
-plot(Tavg.pred.stack, breaks=fixbreaks, col=my.colors(15))
+plot(Tavg.calc.stack, breaks=fixbreaks, col=my.colors(15))
 
-plot(DTR.pred.stack, breaks=fixstackcolors(DTR.pred.stack, DTR.pred.stack, 15),
+plot(DTR.calc.stack, breaks=fixstackcolors(DTR.calc.stack, DTR.calc.stack, 15),
      col=my.colors(15))
 
 Temp<-list(Tmax=Tmax.pred.stack, 
            Tmin=Tmin.pred.stack,
-           Tavg=Tavg.pred.stack, 
-           DTR=DTR.pred.stack)
+           Tavg=Tavg.calc.stack, 
+           DTR=DTR.calc.stack)
 
 ## Now save these files as geotiffs------------------------------------------------------
 for (i in 1:length(Temp)){
@@ -911,21 +922,21 @@ for (i in 1:length(Year)){    # For each year,  # from 2014
   # For each year, have a temporary vector
   Tmax.pred<-vector("list", length=12)  # length 12 for each month
   Tmin.pred<-vector("list", length=12)
-  Tavg.pred<-vector("list", length=12)
-  DTR.pred<-vector("list", length=12)
+  Tavg.calc<-vector("list", length=12)
+  DTR.calc<-vector("list", length=12)
   
   for (j in 1:length(Month)){
     Tmax.pred[[j]]<-predict(covars, mlr.mod.m06_17$Tmax[[i]][[j]], progress='text')
     Tmin.pred[[j]]<-predict(covars, mlr.mod.m06_17$Tmin[[i]][[j]], progress='text')
-    Tavg.pred[[j]]<-predict(covars, mlr.mod.m06_17$Tavg[[i]][[j]], progress='text')
-    DTR.pred[[j]]<-predict(covars, mlr.mod.m06_17$DTR[[i]][[j]], progress='text')
+    Tavg.calc[[j]]<-(Tmax.pred[[j]]+Tmin.pred[[j]])/2
+    DTR.calc[[j]]<-predict(covars, mlr.mod.m06_17$DTR[[i]][[j]], progress='text')
   }
   
   # stack raster
   Tmax.pred.stack<-stack(Tmax.pred); 
   Tmin.pred.stack<-stack(Tmin.pred)
-  Tavg.pred.stack<-stack(Tavg.pred)
-  DTR.pred.stack<-stack(DTR.pred)
+  Tavg.calc.stack<-stack(Tavg.calc)
+  DTR.calc.stack<-stack(DTR.calc)
   
   ## Now save these raster stacks as 12-layer geotiffs------
   writeRaster(Tmax.pred.stack,
@@ -934,10 +945,10 @@ for (i in 1:length(Year)){    # For each year,  # from 2014
   writeRaster(Tmin.pred.stack,
               filename=paste0("Analyses/Spatial_2006_2017_fin2019/Maps/Tmin_", Year[i], "stack.tif"),
               format="GTiff", bylayer=F, overwrite=T)
-  writeRaster(Tavg.pred.stack,
+  writeRaster(Tavg.calc.stack,
               filename=paste0("Analyses/Spatial_2006_2017_fin2019/Maps/Tavg_", Year[i], "stack.tif"),
               format="GTiff", bylayer=F, overwrite=T)
-  writeRaster(DTR.pred.stack,
+  writeRaster(DTR.calc.stack,
               filename=paste0("Analyses/Spatial_2006_2017_fin2019/Maps/DTR_", Year[i], "stack.tif"),
               format="GTiff", bylayer=F, overwrite=T)
   
@@ -948,9 +959,9 @@ for (i in 1:length(Year)){    # For each year,  # from 2014
   # par(mfrow=c(4,3))
   # plot(Tmax.pred.stack, breaks=fixbreaks, col=my.colors(15))
   # plot(Tmin.pred.stack, breaks=fixbreaks, col=my.colors(15))
-  # plot(Tavg.pred.stack, breaks=fixbreaks, col=my.colors(15))
+  # plot(Tavg.calc.stack, breaks=fixbreaks, col=my.colors(15))
   # 
-  # plot(DTR.pred.stack, breaks=fixstackcolors(DTR.pred.stack, DTR.pred.stack, 15),
+  # plot(DTR.calc.stack, breaks=fixstackcolors(DTR.calc.stack, DTR.calc.stack, 15),
   #      col=my.colors(15))
   
   range(cellStats(Tmax.pred.stack, max), cellStats(Tmin.pred.stack, min))
@@ -966,11 +977,11 @@ for (i in 1:length(Year)){    # For each year,  # from 2014
     dev.off()
     
     png(file=paste0("Analyses/Spatial_2006_2017_fin2019/Maps/Tavg_", Year[i], sprintf("%02d", Month[j]), ".png"), bg="transparent")
-    plot(Tavg.pred.stack[[j]], main=paste("Tavg", Year[i], month.abb[j]), zlim=c(0,32)) # fix col ramp   
+    plot(Tavg.calc.stack[[j]], main=paste("Tavg", Year[i], month.abb[j]), zlim=c(0,32)) # fix col ramp   
     dev.off()
     
     png(file=paste0("Analyses/Spatial_2006_2017_fin2019/Maps/DTR_", Year[i], sprintf("%02d", Month[j]), ".png"), bg="transparent")
-    plot(DTR.pred.stack[[j]], main=paste("DTR", Year[i], month.abb[j]), zlim=c(2,16))
+    plot(DTR.calc.stack[[j]], main=paste("DTR", Year[i], month.abb[j]), zlim=c(2,16))
     dev.off()
   }
 }
