@@ -30,20 +30,20 @@ These scripts are associated with the Hawaii temperature mapping and modeling ef
 
 ## AnalysesSpatial_Mod_Val_Map_20190612.R
 - Last run: 6/21/2019
-- Notes: Spatial patterns, mean annual values
-- Temperature variables vs elevation, TPI*, CI, albedo, LAI, MAP, cloud freq, wind speed
-- Take station month year data and station annual data: complete years (so as to not bias dataset)
-- Analyze station mean annual AND mean month for (2006-2017 period)
-- Make scatterplot matrix of station mean annual Tmax, Tmin, Tavg, and DTR versus all covariates
+1. Notes: Spatial patterns, mean annual values
+   - Temperature variables vs elevation, TPI*, CI, albedo, LAI, MAP, cloud freq, wind speed
+   - Take station month year data and station annual data: complete years (so as to not bias dataset)
+   - Analyze station mean annual AND mean month for (2006-2017 period)
+   - Make scatterplot matrix of station mean annual Tmax, Tmin, Tavg, and DTR versus all covariates
 
-- Notes: Model selection and validation
-- Select best model for annual station-years looking at first order effects of all variable combinations
-- Perform k-fold cross validation to calculate MAE, RMSE for mean annual predictions from best models
-- produce FIGURE 2: Validation Stats of best models
+2. Notes: Model selection and validation
+   - Select best model for annual station-years looking at first order effects of all variable combinations
+   - Perform k-fold cross validation to calculate MAE, RMSE for mean annual predictions from best models
+   - produce FIGURE 2: Validation Stats of best models
 
-- Notes: Mapping
-- fit annual, monthly, and month year model coefficients based on best models from annual station-years
-- predict and make maps
+3. Notes: Mapping
+   - fit annual, monthly, and month year model coefficients based on best models from annual station-years
+   - predict and make maps
 
 # Time Series Covariates
 ## AnalysesTemporal_p0_20190613.R
