@@ -20,50 +20,47 @@ These scripts are associated with the Hawaii temperature mapping and modeling ef
 
 ## Aggregation_and_QAQC.R
 - Last run: 5/6/2018
-1. Match all station locations with gridded correlates
-2. Subset appropriately for analysis: by month-years or years
+- Match all station locations with gridded correlates
+- Subset appropriately for analysis: by month-years or years
 
 # Spatial Covariates
 ## ExtractSpatialCovariates_May2018.R (from ExtractRFValues.R)
 - Last run: 5/6/2018
 - Notes: Extract covariates based on layers of spatial data
 
-## AnalysesSpatial_20180525.R  
-- Last run: 5/25/2018
-- Notes: Analysis 3: Spatial Patterns
-- Temperature variables vs elevation, TPI*, CI, albedo, LAI, MAP, Cloud freq, wind speed
-- *TPI* maybe should be flow accumulation or Beven Topmodel TPI instead of this other TPI?
+## AnalysesSpatial_Mod_Val_Map_20190612.R
+- Last run: 6/21/2019
+- Notes: Spatial patterns, mean annual values
+- Temperature variables vs elevation, TPI*, CI, albedo, LAI, MAP, cloud freq, wind speed
 - Take station month year data and station annual data: complete years (so as to not bias dataset)
-- Analyze station mean annual AND mean month for (xx-xx base period)
-- Make scatterplot matrix of station mean annual Tmax, Tmin, Tavg, and DTR versus all covariate
+- Analyze station mean annual AND mean month for (2006-2017 period)
+- Make scatterplot matrix of station mean annual Tmax, Tmin, Tavg, and DTR versus all covariates
 
-## AnalysesValidation_20180629.R
-- Last run: 06/29/2018
-- Notes: this script performs model fitting and evaluation:
-1. mean annual station values
-  - simple linear regression on elevation for Tmax, Tmin, Tavg
-  - multiple linear regression using other predictor variables for Tmax, Tmin, Tavg, and DTR, using variables selected through AIC
-2. mean monthly station values
-  - regression on elevation
-  - multiple linear regression using other predictor variables for Tmax, Tmin, Tavg, and DTR, using variables selected through AIC 
-3. make annual map of Tmax, Tmin, Tavg, DTR
-4. use jacknifing to calculate MAE, RMSE for mean annual predictions
-5. produces FIGURE 2: Validation Stats of best models
+- Notes: Model selection and validation
+- Select best model for annual station-years looking at first order effects of all variable combinations
+- Perform k-fold cross validation to calculate MAE, RMSE for mean annual predictions from best models
+- produce FIGURE 2: Validation Stats of best models
 
-## AnalysesMonthlyValidation_20180515.R
-- Notes: fit monthly models
-- re-predict and make maps  (incorporates elements of AnalysesMapping.R files)  
+- Notes: Mapping
+- fit annual, monthly, and month year model coefficients based on best models from annual station-years
+- predict and make maps
 
 # Time Series Covariates
-## AnalysesTemporal_p1_20180630.R
-- Notes: Script for running analyses on time series
-- Feb 2018 notes: removed Midway (-999 elevation)
-- 7/20/2017 notes: created new script for interannual/interdecadal variability, revised for cloud/wind 7/20/2017
-- 6/23/2017 notes: added TWI criteria, simplified Fig 1 (stations)
-- Apr 18-20 2016 notes: major overhaul
-- DESCRIPTION: This script addresses only station coverage, ***TRENDS
+## AnalysesTemporal_p0_20190613.R
+- calculates regression time series from station data, Tz0, dT/dz
+- addresses only station coverage 
 - produces FIGURE 1: plot of stations
-- produces FIGURE 3: plots of annual trends, monthly for 1905-2017
+
+## AnalysesTemporal_p1_20190809.R	
+- Calculates nonparametric trends of Tz0, dT/dz
+- produces FIGURE 3: plots of annual trends, monthly for 1905-2017, 1958-2017
+
+## AnalysesTemporal_p2_20190809.R
+- Compares Tz0 to SST, RFI, WS, and CC, MEI, PDO, IPO, NPGO
+- pre-whiten time series and look at CCFs
+- filter and plot time series together
+- Produce Figure 4: Tz0 and SST, RFT, WS, and CC
+- Produce Supporting Info Figure 6: Tz0 and PDO, NPGO, IPO, MEI
 
 ## TrendMethodComparison.R
 - Notes: Ancillary script for calculating trends with annual time series using different methods
