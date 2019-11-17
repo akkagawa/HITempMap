@@ -55,6 +55,9 @@ These scripts are associated with the Hawaii temperature mapping and modeling ef
 - Calculates nonparametric trends of Tz0, dT/dz
 - produces FIGURE 3: plots of annual trends, monthly for 1905-2017, 1958-2017
 
+## Indices_processing_20180521.R
+- Notes: obtain and organize various climate indices
+
 ## AnalysesTemporal_p2_20190809.R
 - Compares Tz0 to SST, RFI, WS, and CC, MEI, PDO, IPO, NPGO
 - pre-whiten time series and look at CCFs
