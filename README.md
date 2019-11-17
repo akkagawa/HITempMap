@@ -93,9 +93,9 @@ These scripts are associated with the Hawaii temperature mapping and modeling ef
 - Pull Uwyo records
 - Parse and split into profile and calculated indices
 
-## Sonde_UWyo_profileTRENDS.R  (Temp, RH, Mixing ratio)
+## Sonde_UWyo_profileTRENDS20190730.R  (Temp, RH, Mixing ratio)
 - Read in UWyo sounding profile information
 - Combine and export monthly time series by layers, 400m slices
 
-## LapseRateFigure.R
+## LapseRateFigure_20191114.R
 - Read in surface, ceilometer, and sounding data from 1978-2017
