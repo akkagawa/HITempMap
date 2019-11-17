@@ -391,7 +391,7 @@ legend("topleft",
 dev.off()
 
 #########################################
-# Percent improvement in RMSE:
+# Percent improvement in RMSE between full model and linear regression
 ## Tmax improvement over regular regression: 28% reduction of RMSE
 (tmax.lm$results[1,2]-tmax.model$results[1,2])/tmax.lm$results[1,2]*100  #(orig-better)/orig  
 
@@ -401,7 +401,7 @@ dev.off()
 ## Tavg improvement over linear regression: 31% reduction of RMSE
 (tavg.lm$results[1,2]-tavgseg.model$results[1,2])/tavg.lm$results[1,2]*100  #(orig-better)/orig  
 
-## DTR improvement over linear regression: 28% reduction of RMSE
+## DTR improvement over linear regression: 23% reduction of RMSE
 (dtr.lm$results[1,2]-dtr.model$results[1,2])/dtr.lm$results[1,2]*100  #(orig-better)/orig  
 
 ## Calculated Tavg improvement over model prediction: 6% reduction of RMSE
