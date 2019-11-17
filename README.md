@@ -23,7 +23,7 @@ These scripts are associated with the Hawaii temperature mapping and modeling ef
 - Match all station locations with gridded correlates
 - Subset appropriately for analysis: by month-years or years
 
-# Spatial Covariates
+# Spatial Analysis
 ## ExtractSpatialCovariates_May2018.R (from ExtractRFValues.R)
 - Last run: 5/6/2018
 - Notes: Extract covariates based on layers of spatial data
@@ -45,7 +45,7 @@ These scripts are associated with the Hawaii temperature mapping and modeling ef
    - fit annual, monthly, and month year model coefficients based on best models from annual station-years
    - predict and make maps
 
-# Time Series Covariates
+# Temporal Analysis: trends in sea level air temperature and lapse rates
 ## AnalysesTemporal_p0_20190613.R
 - calculates regression time series from station data, Tz0, dT/dz
 - addresses only station coverage 
@@ -55,8 +55,15 @@ These scripts are associated with the Hawaii temperature mapping and modeling ef
 - Calculates nonparametric trends of Tz0, dT/dz
 - produces FIGURE 3: plots of annual trends, monthly for 1905-2017, 1958-2017
 
+## TrendMethodComparison.R
+- Notes: Ancillary script for calculating trends with annual time series using different methods
+
+# Temporal Analysis: Comparing sea level air temperature and climate variables
+## TS_ParseNCDCforCloudWindMay2018.R
+- script to examine airport cloud cover and wind speed info from GHCND records
+
 ## Indices_processing_20180521.R
-- Notes: obtain and organize various climate indices
+- Notes: Script to obtain and organize various climate indices
 
 ## AnalysesTemporal_p2_20190809.R
 - Compares Tz0 to SST, RFI, WS, and CC, MEI, PDO, IPO, NPGO
@@ -65,26 +72,7 @@ These scripts are associated with the Hawaii temperature mapping and modeling ef
 - Produce Figure 4: Tz0 and SST, RFT, WS, and CC
 - Produce Supporting Info Figure 6: Tz0 and PDO, NPGO, IPO, MEI
 
-## TrendMethodComparison.R
-- Notes: Ancillary script for calculating trends with annual time series using different methods
-
-# Comparing temperature time series comparison with climate variables
-## TS_ParseNCDCforCloudWindMay2018.R
-- Date: 6/14/2017- 6/15
-- Purpose: to look for cloud cover data, wind speed
-- script modified from redownload.R to examine airport cloud cover and wind speed info from NCDC server
-
-## Indices_processing1Sep2017.R
-- Notes: Script to organize various climate indices
-
-## AnalysesTemporal_p2_20180521.R
-- NATURAL VARIABILITY
-- revised for cloud/wind 7/20/2017, finalizing ts analyses 9/2017
-- Notes: Script for running analyses on time series
-- produces FIGURE 4: Fig4_InterannualVar_SST_RFI.pdf
-- produces FIGURE 5: 
-
-# Contextualizing lapse rates: comparing with soundings and ceilometer
+# Contextualizing lapse rates (-dT/dz): comparing with soundings and ceilometer
 ## ASOS_cloud2019.R
 - Pull ASOS records, METAR format
 - Parse for ceilometer info and export
