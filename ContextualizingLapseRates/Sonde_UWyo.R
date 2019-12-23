@@ -8,7 +8,7 @@
 ##    3) visualize Script to compare sonde and station-derived temperatures to better understand 0-1600m lapse rates
 ##################################################################
 
-setwd("C:/Users/Aurora/OneDrive/Documents/Projects/TempMapping/NOT_USED/AKV_Sonde/UWyo")
+setwd("xxx/TempMapping/NOT_USED/AKV_Sonde/UWyo")
 
 ## Specify station ()
 years<-1973:2018
