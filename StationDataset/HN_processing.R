@@ -3,7 +3,7 @@
 ## Date: Apr 11 2016; re-run 6/16/2017; re-run 5/3/2018
 ## Notes: Script for downloading and aggregating HaleNet data
 
-setwd("C:/Users/Aurora/OneDrive/Documents/Projects/TempMapping/HaleNet/May2018")
+setwd("xxx/TempMapping/HaleNet/May2018")
 
 # Define a function to identify number of NA values
 numNA<-function(X) {length(which(is.na(X)))}
