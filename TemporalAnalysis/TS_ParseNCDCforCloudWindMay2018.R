@@ -9,7 +9,7 @@
 # Script to download data from NCDC server
 
 ####################################
-setwd("C:/Users/Aurora/OneDrive/Documents/Projects/TempMapping/NCDC_DailyTemp")
+setwd("xxx/TempMapping/NCDC_DailyTemp")
 
 stn<-read.csv("ghcnd-stationsHI.csv") 
 files<-paste(stn$ID, ".dly", sep="")
@@ -179,7 +179,7 @@ write.csv(HNL.ALLsts, "../WindCloud/HNLCloudWind_2017.csv", row.names=F)
 
 ###########################################################
 # Pick up new R session
-setwd("C:/Users/Aurora/OneDrive/Documents/Projects/TempMapping/WindCloud")
+setwd("xxx/TempMapping/WindCloud")
 library(xts)
 ####
 
