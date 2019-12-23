@@ -8,7 +8,7 @@
 ##    3) visualize time series of cloud frequency and ceiling (cloud base) height
 ##################################################################
 
-setwd("C:/Users/Aurora/OneDrive/Documents/Projects/TempMapping/NOT_USED/ASOS_Cloud")
+setwd("xxx/ASOS_Cloud")
 
 ######### NCDC FILES HARD TO PARSE!!! ########################
 # ######## Download from NCDC server ###
