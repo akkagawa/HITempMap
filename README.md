@@ -1,6 +1,6 @@
 # HITempMap
 These scripts are associated with the Hawaii temperature mapping and modeling effort by A. Kagawa-Viviani:
-https://zenodo.org/badge/DOI/10.5281/zenodo.3592093.svg
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3592093.svg)](https://doi.org/10.5281/zenodo.3592093)
 
 ## [1. Station Dataset](../master/StationDataset)
 ### *[DatasetGeneration_May2018.R](../master/StationDataset/DatasetGeneration_May2018.R)*
