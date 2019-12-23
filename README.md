@@ -1,7 +1,7 @@
 # HITempMap
 These scripts are associated with the Hawaii temperature mapping and modeling effort by A. Kagawa-Viviani:
 
-## [Station Dataset](../StationDataset)
+## [1. Station Dataset](../StationDataset)
 ### *[DatasetGeneration_May2018.R](../StationDataset/DatasetGeneration_May2018.R)*
 - Last run: 5/3/2018
 - Notes: Full Script for Temperature Modeling and Mapping, from NCDC download to organized files of daily data for aggregation to monthly, yearly.
@@ -23,7 +23,7 @@ These scripts are associated with the Hawaii temperature mapping and modeling ef
 - Match all station locations with gridded correlates
 - Subset appropriately for analysis: by month-years or years
 
-## [Spatial Analysis](../SpatialAnalysis)
+## [2. Spatial Analysis](../SpatialAnalysis)
 ### *[ExtractSpatialCovariates_May2018.R](../SpatialAnalysis/ExtractSpatialCovariates_May2018.R)*
 - Last run: 5/6/2018
 - Notes: Extract covariates based on layers of spatial data
@@ -45,7 +45,7 @@ These scripts are associated with the Hawaii temperature mapping and modeling ef
    - fit annual, monthly, and month year model coefficients based on best models from annual station-years
    - predict and make maps
 
-## [Temporal Analysis: trends in sea level air temperature](../TemporalAnalysis)
+## [3. Temporal Analysis: trends in sea level air temperature](../TemporalAnalysis)
 ### *[AnalysesTemporal_p0_20190613.R](../TemporalAnalysis/AnalysesTemporal_p0_20190613.R)*
 - calculates regression time series from station data, Tz0, dT/dz
 - addresses only station coverage 
@@ -58,7 +58,7 @@ These scripts are associated with the Hawaii temperature mapping and modeling ef
 ### *[TrendMethodComparison.R](../TemporalAnalysis/TrendMethodComparison.R)*
 - Notes: Ancillary script for calculating trends with annual time series using different methods
 
-## [Temporal Analysis: Comparing sea level air temperature and climate variables](../TemporalAnalysis)
+## [4. Temporal Analysis: Comparing sea level air temperature and climate variables](../TemporalAnalysis)
 ### *[TS_ParseNCDCforCloudWindMay2018.R](../TemporalAnalysis/TS_ParseNCDCforCloudWindMay2018.R)*
 - script to examine airport cloud cover and wind speed info from GHCND records
 
@@ -72,7 +72,7 @@ These scripts are associated with the Hawaii temperature mapping and modeling ef
 - Produce Figure 4: Tz0 and SST, RFT, WS, and CC
 - Produce Supporting Info Figure 6: Tz0 and PDO, NPGO, IPO, MEI
 
-## Contextualizing lapse rates (-dT/dz): comparing with soundings and ceilometer
+## [5. Contextualizing lapse rates (-dT/dz): comparing with soundings and ceilometer](../ContextualizingLapseRates)
 ### *[ASOS_cloud2019.R](../ContextualizingLapseRates/ASOS_cloud2019.R)*
 - Pull ASOS records, METAR format
 - Parse for ceilometer info and export
