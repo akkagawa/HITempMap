@@ -3,7 +3,7 @@
 ## Date: Apr 19 2016, updated 7/20/2017, 9/2017
 ## Notes: Script to organize various climate indices
 
-setwd("C:/Users/Aurora/OneDrive/Documents/Projects/TempMapping/ENSO")
+setwd("xxx/TempMapping/ENSO")
 
 #######################################################################
 ## Download and aggregate into a single file 
@@ -26,7 +26,7 @@ setwd("C:/Users/Aurora/OneDrive/Documents/Projects/TempMapping/ENSO")
   
   ####################### Extended MEI ################################
   ## http://www.esrl.noaa.gov/psd/enso/mei.ext/table.ext.html
-  ## Wolter, K., and M. S. Timlin, 2011: El Niño/Southern Oscillation behaviour 
+  ## Wolter, K., and M. S. Timlin, 2011: El NiÃ±o/Southern Oscillation behaviour 
   ##    since 1871 as diagnosed in an extended multivariate ENSO index (MEI.ext). 
   ##    Intl. J. Climatology, 31, 14pp., 1074-1087. 
   
@@ -87,7 +87,7 @@ library('rgdal')
 library('ncdf4')
 
 #Set Working Directory
-setwd("C:/Users/Aurora/OneDrive/Documents/Projects/TempMapping")
+setwd("xxx/TempMapping")
 
 urls<-paste("http://www1.ncdc.noaa.gov/pub/data/cmb/ersst/v5/netcdf/",
             "ersst.v5.", 
@@ -144,7 +144,7 @@ library('rgdal')
 library('ncdf4')
 
 #Set Working Directory
-setwd("C:/Users/Aurora/OneDrive/Documents/Projects/TempMapping/WindCloud")
+setwd("xxx/TempMapping/WindCloud")
 
 ncf_wind<-"waswind_v1_0_1.monthly.nc"
 ncin <- nc_open(ncf_wind)
@@ -188,7 +188,7 @@ windmean.ts<-ts(waswindmean, start=c(1950,1), frequency=12)
 # Type:Analysis
 # Dataset:interim_moda
 # Version:1
-# Grid:0.75� x 0.75�
+# Grid:0.75° x 0.75°
 # Date:19790101 - 20170601
 # Type of level:Surface
 # Parameter:10 metre wind speed, High cloud cover, Low cloud cover, Medium cloud cover, Total cloud cover
@@ -223,7 +223,7 @@ library('raster')
 library('rgdal')
 library('ncdf4')
 
-setwd("C:/Users/Aurora/OneDrive/Documents/Projects/TempMapping/WindCloud")
+setwd("xxx/TempMapping/WindCloud")
 
 ncf_eraint_1979_2017<-"eraint_windcloudmonthly.nc" #"eraint_windcloudmonthly.nc"  
 ncf_eraint_2017<-"windcloud_2017_ecmwf.nc" #"eraint_windcloudmonthly.nc"  
