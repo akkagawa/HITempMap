@@ -4,7 +4,7 @@
 ## Notes: Script for running analyses on calculated time series
 ## DESCRIPTION: This script addresses only station coverage, trends
 
-setwd("C:/Users/Aurora/OneDrive/Documents/Projects/TempMapping")
+setwd("xxx/TempMapping")
 
 ##################################################################
 ## Analysis 1: Temporal Trends : 
@@ -456,38 +456,4 @@ legend(x="bottom", ncol=2, bty="n", pch=c(2,6),
        legend=c(Tmax.exp, Tmin.exp), cex=1.2,
        col=c("red", "blue"), bg="white")
 dev.off()
-
-# # Lapse rate trend, Tmax 1958-2017
-# par(fig=c(0.5,1,0,0.4), new=T, mar=c(2,0.1,3,5), oma=c(1,1,3,1), new=T)
-# 
-# with(coefsy[coefsy$Year>=1958,], 
-#      plot(Tmax.m*1000~Year, type="l", col="red",lwd=2, 
-#           xaxt='n', yaxt='n', xlim=c(1905, 2017), ylim=c(5.6, 9.6))) #
-# 
-# with(coefsy[coefsy$Year>=1958,], 
-#      lines(Tavg.m*1000~Year, col="black",lwd=2, xlim=c(1905, 2017)), new=T) #
-# 
-# with(coefsy[coefsy$Year>=1958,], 
-#      lines(Tmin.m*1000~Year, col="blue",lwd=2, xlim=c(1905, 2017)), new=T) #
-# 
-# axis(side=1)
-# axis(side=4, labels=T, tick=T, cex.axis=1.3)
-# mtext(side=4, text=expression(-dT/dz~(degree*C~km^-1)), 
-#       cex=1.2, line=4)
-# # Set up for legend
-# tmax.lapse<-coef(senmaxlapse.60)[2]*1000*10
-# tmax.lapse.leg<-as.expression(bquote(T[max]:~+.(round(tmax.lapse, 2))~degree*C~km^-1~dec^-1))
-# tavg.lapse<-coef(senavglapse.60)[2]*1000*10
-# tavg.lapse.leg<-as.expression(bquote(T[avg]:~+.(round(tavg.lapse, 2))~degree*C~km^-1~dec^-1))
-# 
-# legend("topleft", bty="n", 
-#        legend=c(tmax.lapse.leg, tavg.lapse.leg), 
-#        lty=3, lwd=2, col=c("red", "black"), cex=1.2)
-# 
-# usr <- par("usr")  # recent trend
-# clip(x1=1958, usr[2], usr[3], usr[4])
-# abline(coef(senmaxlapse.60)*1000, col="red", lty="12", lwd=2)
-# abline(coef(senavglapse.60)*1000, col="black", lty="12", lwd=2)
-# abline(coef(senminlapse.60)*1000, col="blue", lty="12", lwd=2)
-
 
