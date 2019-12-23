@@ -6,7 +6,7 @@
 ## Subset appropriately for analysis: by month-years or years
 ##  Drawn from NCDCplusHaleNet3.R, SubsettingMonthYears1.R
 
-setwd("C:/Users/Aurora/OneDrive/Documents/Projects/TempMapping")
+setwd("xxx/TempMapping")
 key<-read.csv("NCDCStationKeys/StationKey_allMay2018.csv")
 
 ghcn_mo<-read.csv("NCDC_DailyTemp/monthly/monthly_mrg_completeNCDCstns.csv")
