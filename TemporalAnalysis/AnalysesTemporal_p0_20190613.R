@@ -9,7 +9,7 @@
 ## Apr 18-20 2016 notes: major overhaul
 ## DESCRIPTION: This script addresses only station coverage (see p1 for trends)
 
-setwd("C:/Users/Aurora/OneDrive/Documents/Projects/TempMapping")
+setwd("xxx/TempMapping")
 
 ## Read in annual data file (12 station months/observation)
 merged_yr<-read.csv("Merged_yr.csv", stringsAsFactors = F)  
