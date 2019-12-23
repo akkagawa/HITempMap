@@ -45,7 +45,7 @@ These scripts are associated with the Hawaii temperature mapping and modeling ef
    - fit annual, monthly, and month year model coefficients based on best models from annual station-years
    - predict and make maps
 
-## [3. Temporal Analysis: trends in sea level air temperature](../TemporalAnalysis)
+## [3a. Temporal Analysis: trends in sea level air temperature](../TemporalAnalysis)
 ### *[AnalysesTemporal_p0_20190613.R](../TemporalAnalysis/AnalysesTemporal_p0_20190613.R)*
 - calculates regression time series from station data, Tz0, dT/dz
 - addresses only station coverage 
@@ -58,7 +58,7 @@ These scripts are associated with the Hawaii temperature mapping and modeling ef
 ### *[TrendMethodComparison.R](../TemporalAnalysis/TrendMethodComparison.R)*
 - Notes: Ancillary script for calculating trends with annual time series using different methods
 
-## [4. Temporal Analysis: Comparing sea level air temperature and climate variables](../TemporalAnalysis)
+## [3b. Temporal Analysis: Comparing sea level air temperature and climate variables](../TemporalAnalysis)
 ### *[TS_ParseNCDCforCloudWindMay2018.R](../TemporalAnalysis/TS_ParseNCDCforCloudWindMay2018.R)*
 - script to examine airport cloud cover and wind speed info from GHCND records
 
@@ -72,7 +72,7 @@ These scripts are associated with the Hawaii temperature mapping and modeling ef
 - Produce Figure 4: Tz0 and SST, RFT, WS, and CC
 - Produce Supporting Info Figure 6: Tz0 and PDO, NPGO, IPO, MEI
 
-## [5. Contextualizing lapse rates (-dT/dz): comparing with soundings and ceilometer](../ContextualizingLapseRates)
+## [4. Contextualizing lapse rates (-dT/dz): comparing with soundings and ceilometer](../ContextualizingLapseRates)
 ### *[ASOS_cloud2019.R](../ContextualizingLapseRates/ASOS_cloud2019.R)*
 - Pull ASOS records, METAR format
 - Parse for ceilometer info and export
