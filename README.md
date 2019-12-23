@@ -2,23 +2,23 @@
 These scripts are associated with the Hawaii temperature mapping and modeling effort by A. Kagawa-Viviani:
 
 # Station Dataset
-## DatasetGeneration_May2018.R
+## [DatasetGeneration_May2018.R](../StationDataset/DatasetGeneration_May2018.R)
 - Last run: 5/3/2018
 - Notes: Full Script for Temperature Modeling and Mapping, from NCDC download to organized files of daily data for aggregation to monthly, yearly.
 
-## HN_processing.R
+## [HN_processing.R](../StationDataset/HN_processing.R)
 - Last run: 5/3/2018
 - Notes: Script for aggregating hourly HaleNet data and calculating daily, monthly, and annual statistics
 
-## MLO_processing2019.R
+## [MLO_processing2019.R](../StationDataset/MLO_processing2019.R)
 - Last run: 5/21/2019
 - Notes: Script for downloading and aggregating hourly Mauna Loa Observatory data and calculating daily, monthly, and annual statistics
 
-## StationKey_processing3.R
+## [StationKey_processing3.R](../StationDataset/StationKey_processing3.R)
 - Last run: 5/6/2018
 - Notes: Script for organizing station metadata and generating a final station key (req's DatasetGeneration...)
 
-## Aggregation_and_QAQC.R
+## [Aggregation_and_QAQC.R](../StationDataset/Aggregation_and_QAQC.R)
 - Last run: 5/6/2018
 - Match all station locations with gridded correlates
 - Subset appropriately for analysis: by month-years or years
@@ -45,7 +45,7 @@ These scripts are associated with the Hawaii temperature mapping and modeling ef
    - fit annual, monthly, and month year model coefficients based on best models from annual station-years
    - predict and make maps
 
-# Temporal Analysis: trends in sea level air temperature and lapse rates
+# Temporal Analysis: trends in sea level air temperature
 ## AnalysesTemporal_p0_20190613.R
 - calculates regression time series from station data, Tz0, dT/dz
 - addresses only station coverage 
