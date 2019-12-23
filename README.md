@@ -86,4 +86,9 @@ These scripts are associated with the Hawaii temperature mapping and modeling ef
 - Combine and export monthly time series by layers, 400m slices
 
 ### *[LapseRateFigure_20191114.R](../master/ContextualizingLapseRates/LapseRateFigure_20191114.R)*
-- Read in surface, ceilometer, and sounding data from 1978-2017
+- Read in surface, ceilometer, and sounding data from 1978-2017 and visualize
+
+### *[Trends_40yr_20yr.R](../master/ContextualizingLapseRates/Trends_40yr_20yr.R)*
+- accompanies LapseRateFigure above
+- Read in surface, ceilometer, and sounding data and calculate nonparametric trends 1978-2017, 1998-2017
+
