@@ -10,7 +10,7 @@
 # use "ghcnd-stationsHI.csv" for list of 688 HI stations downloaded: lat, long, elev, name
 # use "ncdcstation2.csv" for parsed mshr.txt metadata and station relocations
 
-setwd("C:/Users/Aurora/OneDrive/Documents/Projects/TempMapping/NCDC_DailyTemp")
+setwd("xxx/TempMapping/NCDC_DailyTemp")
 
 ### Match everything else only to the stations used in the monthly Temp dataset
 monthly<-read.csv("monthly/monthly_mrg_completeNCDCstns.csv")
@@ -180,7 +180,7 @@ write.csv(merged2, "../NCDCStationKeys/SKNcomparisonMay2018_298.csv", row.names=
 ##  Extract locations from the Rainfall Atlas site listing  ##
 ##  Built off: ExtractLocations3.R                          ##
 ##############################################################
-setwd("C:/Users/Aurora/OneDrive/Documents/Projects/TempMapping/NCDCStationKeys")
+setwd("xxx/TempMapping/NCDCStationKeys")
 
 #matchedSKN<-read.csv("MatchedSKN_ghcnd.csv", stringsAsFactors=F)
 #matchedSKN<-read.csv("MatchedSKN_ghcnd2.csv", stringsAsFactors=F)
