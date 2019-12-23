@@ -9,7 +9,7 @@ library('raster')
 library('rgdal')
 
 #Set Working Directory
-setwd("C:/Users/Aurora/OneDrive/Documents/Projects/TempMapping")
+setwd("xxx/TempMapping")
 
 #Read in station key
 stationkey<- read.csv(file = "NCDCStationKeys/StationKey_allMay2018.csv", header = TRUE)
