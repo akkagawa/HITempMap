@@ -7,7 +7,7 @@
 ##################################################################
 ## Analysis 2: Time Series comparisons
 ##  Compare to MEI, PDO, IPO, RFI from RF atlas
-setwd("C:/Users/Aurora/OneDrive/Documents/Projects/TempMapping")
+setwd("xxx/TempMapping")
 op<-par() # save default
 
 Tmax.exp<-expression("T"["max"])
