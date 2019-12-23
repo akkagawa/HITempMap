@@ -8,7 +8,7 @@
 ##    3) visualize time series, export csv
 ##################################################################
 
-setwd("C:/Users/Aurora/OneDrive/Documents/Projects/TempMapping/NOT_USED/AKV_Sonde/UWyo/")
+setwd("xxx/TempMapping/NOT_USED/AKV_Sonde/UWyo/")
 library(xts)
 
 H.files<-list.files("Hilo_profiles/", full.names=T)
