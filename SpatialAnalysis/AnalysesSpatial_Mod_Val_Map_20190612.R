@@ -20,7 +20,7 @@
 # Predict maps
 ##################################################################
 
-setwd("C:/Users/Aurora/OneDrive/Documents/Projects/TempMapping")
+setwd("xxx/TempMapping")
 par.default<-par()
 library(segmented)
 
