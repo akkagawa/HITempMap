@@ -10,7 +10,7 @@
 #   Bring in sounding profile data, look at trends
 
 
-setwd("C:/Users/Aurora/OneDrive/Documents/Projects/TempMapping")
+setwd("xxx/TempMapping")
 
 library(xts)
 library(Kendall)
