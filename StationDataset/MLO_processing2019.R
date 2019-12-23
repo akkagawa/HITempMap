@@ -4,7 +4,7 @@
 ## Date: March 25 2016; revised April 8 2016; rerun 6/16/2017; rerun 5/3/2018
 ## Notes: Script for downloading and aggregating Mauna Loa Observatory data
 
-setwd("C:/Users/Aurora/OneDrive/Documents/Projects/TempMapping/MLO")
+setwd("xxx/TempMapping/MLO")
 
 ## Access GMD ftp server and download hourly data
 cur<-unlist(strsplit(date(), split=" "))
