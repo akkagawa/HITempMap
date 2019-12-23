@@ -11,7 +11,7 @@ numNA<-function(X) {length(which(is.na(X)))}
 ## Drawn from script "redownload.R"            ##
 #################################################
 
-setwd("C:/Users/Aurora/OneDrive/Documents/Projects/TempMapping/NCDC_DailyTemp")
+setwd("xxx/TempMapping/NCDC_DailyTemp")
 
 download.file("ftp://ftp.ncdc.noaa.gov/pub/data/ghcn/daily/readme.txt", 
               destfile="readme.txt")
