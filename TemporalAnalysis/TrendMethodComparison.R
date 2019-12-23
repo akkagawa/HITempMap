@@ -4,7 +4,7 @@
 ## Notes: Script for calculating trends with annual time series
 
 ##################################################################
-setwd("C:/Users/Aurora/OneDrive/Documents/Projects/TempMapping")
+setwd("xxx/TempMapping")
 coefsy<-read.csv("annual_lm.csv")    
 
 library(nlme)
@@ -85,7 +85,7 @@ write.csv(df, file="TrendMethodComparison.csv")
 ###############################################################################
 ### Consider station coverage through time.  Visualize as maps
 
-setwd("C:/Users/Aurora/OneDrive/Documents/Projects/TempMapping")
+setwd("xxx/TempMapping")
 merged_yr<-read.csv("Merged_yr.csv")  ## 220 stations
 merged_yr<-merged_yr[-which(merged_yr$CorrElev_m<0),]  # Remove -999.9 elevation
 merged_yr<-merged_yr[-grep("WAIMEA 892", merged_yr$Name),]                    # Remove WAIMEA 892
