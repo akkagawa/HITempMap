@@ -1,8 +1,8 @@
 # HITempMap
 These scripts are associated with the Hawaii temperature mapping and modeling effort by A. Kagawa-Viviani:
 
-## [1. Station Dataset](../StationDataset)
-### *[DatasetGeneration_May2018.R](../StationDataset/DatasetGeneration_May2018.R)*
+## [1. Station Dataset](../blob/StationDataset)
+### *[DatasetGeneration_May2018.R](../blob/StationDataset/DatasetGeneration_May2018.R)*
 - Last run: 5/3/2018
 - Notes: Full Script for Temperature Modeling and Mapping, from NCDC download to organized files of daily data for aggregation to monthly, yearly.
 
