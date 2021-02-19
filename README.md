@@ -74,7 +74,7 @@ These scripts are associated with the Hawaii temperature mapping and modeling ef
 - Produce Supporting Info Figure 6: Tz0 and PDO, NPGO, IPO, MEI
 
 ## [4. Contextualizing lapse rates (-dT/dz): comparing with soundings and ceilometer](../master/ContextualizingLapseRates)
-### *[ASOS_cloud2019.R](../master/ContextualizingLapseRates/ASOS_cloud2019.R)*
+### *[ASOS_cloud2019_06.R](../master/ContextualizingLapseRates/ASOS_cloud2019_06.R)*
 - Pull ASOS records, METAR format
 - Parse for ceilometer info and export
 
